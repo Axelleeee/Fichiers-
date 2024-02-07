@@ -1,0 +1,20 @@
+import random
+
+def CreerTableau(n):
+    tab = [0]*n
+
+    for i in range(len(tab)):
+        Aleatoire = random.randint(0,n)
+        tab[i]=Aleatoire
+
+    return tab
+    
+tab = CreerTableau(25)
+
+def algo3(tab):
+    for i in range(len(tab)): #avec ça on va de i à n et c'est une boucle qui a lieu n fois
+        champion = i
+        for j in range(i+1,len(tab)): #là on va de j = n+1 à n
+            champion = random.choice(tab) #le champion devient le plus petit
+        tab[i],tab[champion] = tab[champion],tab[i] #ce qu'il y a dans la case i est inversé avec ce qu'il y a dans la case champion
+print(tab) 
